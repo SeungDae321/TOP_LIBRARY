@@ -18,6 +18,16 @@ const TedTalk = new Book('Ted Talk','Christ Enderson', 340, true);
 library.push(TheAnxiousGeneration);
 library.push(TedTalk);
 
+
+
+const main = document.querySelector('main ul');
+function adder(content){
+    const li = document.createElement('li');
+    li.innerText= content;
+    main.append(li)
+}
+
 for(let book of library){
-    console.log(book.info());
+    adder(book.title);
+    adder(book.auther)
 };
