@@ -12,5 +12,12 @@ Book.prototype.info = function(){
 }
 
 
-const TheAnxiousGeneration = new Book('Jonathan Haidt', 528, false);
+const TheAnxiousGeneration = new Book('The Anxious Generation','Jonathan Haidt', 528, false);
+const TedTalk = new Book('Ted Talk','Christ Enderson', 340, true);
 
+library.push(TheAnxiousGeneration);
+library.push(TedTalk);
+
+for(let book of library){
+    console.log(book.info());
+};
