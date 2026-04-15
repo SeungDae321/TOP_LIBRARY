@@ -1,0 +1,8 @@
+section .inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs input{
+    max-width: 100px;
+}
