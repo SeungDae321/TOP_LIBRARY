@@ -21,5 +21,5 @@ not modified yet...
 
 4. push the object into the library variable; const library = [];
 
-5. loop through the library data to the html element called <main ul>
+5. loop through the library data to the html element called "main ul"
 
