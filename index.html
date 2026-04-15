@@ -7,17 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    
     <section>
+        <h1>Add Your book!</h1>
+    <div class="contents">
         <div class="inputs">
-            <input type="text" placeholder="title">
-            <input type="text" placeholder="auther">
-            <input type="text" placeholder="pages">
-            <input type="text" placeholder="isread">
+            <input id="title" type="text" placeholder="title">
+            <input id="auther" type="text" placeholder="auther">
+            <input id="pages" type="number" placeholder="pages">
+            <div class="isRead">
+                <label for="isRead">is Read</label>
+                <input id="isRead" type="checkbox" aria-label="isread">
+            </div>  
         </div>
         <button>add</button>
+    </div>
     </section>
-    <h1>my library</h1>
+
     <main>
+    <h1>my library</h1>
         <ul>
             
         </ul>

@@ -1,3 +1,13 @@
+section{
+ text-align: center;
+}
+
+section .contents{
+    display: flex;
+    justify-content: center;
+    
+}
+
 section .inputs{
     display: flex;
     flex-direction: column;
@@ -5,4 +15,15 @@ section .inputs{
 
 .inputs input{
     max-width: 100px;
+}
+
+.inputs .isRead{
+    border: solid 1px black;
+    max-width: 102px;
+    border-radius: 2px;
+    padding-left: 4px;
+}
+
+main{
+    text-align: center;
 }
