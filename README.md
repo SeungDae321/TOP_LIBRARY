@@ -17,9 +17,10 @@ function Book(title, auther, pages, isRead){
 };
 
 3. make an object based on the user data (automatically!!)
-not modified yet...
-
+done
 4. push the object into the library variable; const library = [];
 
 5. loop through the library data to the html element called "main ul"
+
+6. introduce localstorage
 
