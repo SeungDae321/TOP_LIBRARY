@@ -20,6 +20,25 @@ Book.prototype.info = function(){
 const TheAnxiousGeneration = new Book('The Anxious Generation','Jonathan Haidt', 528, false);
 const TedTalk = new Book('Ted Talk','Christ Enderson', 340, true);
 
+//html에서 사용자가 입력하는 데이터 추출
+const button = document.querySelector('.contents button');
+const inputs = document.querySelectorAll('.inputs input');
+
+button.addEventListener('click',()=>{
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    
+    const newBooks = new Book(title, author, pages) //1. 새로운 책 생성
+
+    library.push(newBooks) //2. 책 라이브러리에 저장
+    for(let book of library){
+        adder(book.title) //3. 라이브러리에 있는 책 데이터 출력
+    }
+})
+
+
+
 //구조를 통해서 생성한 컨텐츠 데이터를 컨테이너에 삽입
 library.push(TheAnxiousGeneration);
 library.push(TedTalk);
@@ -37,5 +56,4 @@ function adder(content){
 //컨테이너에 반복문을 사용하여서 앞에서 만든 함수를 적용
 for(let book of library){
     adder(book.title);
-    adder(book.auther)
 };
