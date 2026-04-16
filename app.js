@@ -1,4 +1,3 @@
-
 //컨텐츠(데이터)를 넣을 컨테이너
 const library = [];
 
@@ -25,19 +24,22 @@ const button = document.querySelector('.contents button');
 const inputs = document.querySelectorAll('.inputs input');
 
 button.addEventListener('click',()=>{
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    const pages = document.querySelector('#pages').value;
-    
-    const newBooks = new Book(title, author, pages) //1. 새로운 책 생성
 
-    library.push(newBooks) //2. 책 라이브러리에 저장
-    for(let book of library){
-        adder(book.title) //3. 라이브러리에 있는 책 데이터 출력
+    let value = []; //일단 반복문으로 추출한 데이터를 저장할 컨테이너
+    for(let input of inputs){
+        if(input.type === 'checkbox'){
+            value.push(input.checked)
+        } else{
+            value.push(input.value)
+            input.value = "" //버튼을 누르면 기존에 있던 데이터를 삭제하고 편하게 새걸 쓰도록 유도
+        }
     }
+
+    const newBook = new Book(...value); //데이터 저장 컨테이너를 ...스프레드를 이용해서 함수 사용
+    library.push(newBook); //만들어진 객채를 library변수에 저장
+
+    render() //패이지에 출력하는 함수
 })
-
-
 
 //구조를 통해서 생성한 컨텐츠 데이터를 컨테이너에 삽입
 library.push(TheAnxiousGeneration);
@@ -55,5 +57,21 @@ function adder(content){
 
 //컨테이너에 반복문을 사용하여서 앞에서 만든 함수를 적용
 for(let book of library){
-    adder(book.title);
+    adder(`${book.title}\n${book.auther}\n${book.pages}\n${book.isRead}`);
 };
+
+//버튼 이벤트에서 자동으로 기존에 있던걸 중복으로 출력되는걸 방지하고
+//추가되는 것만 추가되게 함
+function render(){
+
+    main.innerHTML = '';
+
+    for(let book of library){
+        adder(`
+            ${book.title}
+            ${book.auther}
+            ${book.pages}
+            ${book.isRead}
+            `);
+    }
+}
